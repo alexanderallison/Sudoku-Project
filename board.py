@@ -36,7 +36,7 @@ class Board:
 
     def clear(self):
         # clears value of a user selected cell
-        if self.selected_cell = 
+        if self.selected_cell:
         pass
 
     def sketch(self, value):
