@@ -98,7 +98,7 @@ while running:
     board.draw()
 
     if board.is_full() and board.check_board():
-        win_text = win_font.render("Congratulations! You've solved the puzzle.", True, (0, 0, 0))
+        win_text = win_font.render("Wow, You win.", True, (0, 0, 0))
         win_rect = win_text.get_rect(center=(WIDTH // 2, HEIGHT - 30))
         SCREEN.blit(win_text, win_rect)
 

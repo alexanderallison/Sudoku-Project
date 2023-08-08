@@ -43,7 +43,8 @@ class Board:
 
     def clear(self):
         # clears value of a user selected cell
-        self.selected_cell = 0
+        if not self.selected_cell.filled:
+            self.selected_cell = 0
 
 
     def sketch(self, value):
