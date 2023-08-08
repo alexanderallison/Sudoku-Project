@@ -24,6 +24,10 @@ class Board:
                 cell.draw()
         # draw every cell
 
+    def place_number(self, value):
+        if self.selected_cell and self.selected_cell.value == 0:  # Check if the cell is empty
+            self.selected_cell.set_cell_value(value)
+
     def select(self, row, col): # marks row, col as current cell selection
         # allows user to edit value of selected cell
         if self.selected_cell:
@@ -39,8 +43,8 @@ class Board:
 
     def clear(self):
         # clears value of a user selected cell
-        #if self.selected_cell:
-        pass
+        self.selected_cell = 0
+
 
     def sketch(self, value):
         #  sets sketched value of selected cell to user input
@@ -85,5 +89,11 @@ class Board:
                 if not self.is_valid(cell.row, cell.col, cell.value):
                     return False
         return True
+
+    def fill_board(self):
+        for row in range(9):
+            for col in range(9):
+                cell_value = self.sudoku_generator.board[row][col]
+                self.cells[row][col].set_cell_value(cell_value)
 
 

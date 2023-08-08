@@ -82,8 +82,8 @@ while running:
                     if value >= 1 and value <= 9:
                         board.place_number(value)
                 elif event.key == pygame.K_RETURN:
-                    if board.selected_cell.sketch_value != 0:
-                        board.place_number(board.selected_cell.sketch_value)
+                    if board.selected_cell.sketched_value != 0:
+                        board.place_number(board.selected_cell.sketched_value)
                         board.selected_cell.set_sketched_value(0)
 
     SCREEN.fill((255, 255, 255))
