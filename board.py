@@ -15,11 +15,11 @@ class Board:
         # instantiate 81 cells:
         self.cells = [[Cell(0, row, col, self.screen) for col in range(9)] for row in range(9)]
         # instantiate sudoku 2D list
-        self.sudoku_generator = generate_sudoku(9, DIFFICULTY_LEVELS[difficulty])
+        sudoku = generate_sudoku(9, DIFFICULTY_LEVELS[difficulty])
         self.selected_cell = None
         for row in range(9):
             for col in range(9):
-                cell_value = self.sudoku_generator[row][col]
+                cell_value = sudoku.board[row][col]
                 self.cells[row][col] = Cell(cell_value, row, col, self.screen)
 
     def draw(self):  # draw outline of sudoku grid with lines
@@ -79,11 +79,12 @@ class Board:
         # updates the 2D board list with values of all cells
         for row_idx, row in enumerate(self.cells):
             for col_idx, cell in enumerate(row):
-                self.sudoku_generator.board[row_idx][col_idx] = cell.value
+                self.sudoku.board[row_idx][col_idx] = cell.value
 
     def find_empty(self):
         # finds an empty cell and returns its row and col as tuple (x,y)
         pass
+
 
     def check_board(self):
         # checks whether the board is solved correctly
@@ -91,14 +92,14 @@ class Board:
             for cell in row:
                 if cell.value == 0:
                     return False
-                if not self.is_valid(cell.row, cell.col, cell.value):
+                if not self.sudoku.is_valid(cell.row, cell.col, cell.value):
                     return False
         return True
 
     def fill_board(self):
         for row in range(9):
             for col in range(9):
-                cell_value = self.sudoku_generator.board[row][col]
+                cell_value = self.sudoku.board[row][col]
                 self.cells[row][col].set_cell_value(cell_value)
 
 

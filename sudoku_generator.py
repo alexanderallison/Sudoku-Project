@@ -44,6 +44,8 @@ class SudokuGenerator:
             return True
         return False
 
+
+
     def solve(self, row, col):
         if row == 9:
             return True
@@ -109,8 +111,7 @@ class SudokuGenerator:
 def generate_sudoku(size, removed):
     sudoku = SudokuGenerator(size, removed)
     sudoku.fill_values()
-    board = sudoku.get_board()
     sudoku.remove_cells()
-    for row in board:
-        print(row, end='\n')
-    return board
+    sudoku.print_board()
+    return sudoku
+
