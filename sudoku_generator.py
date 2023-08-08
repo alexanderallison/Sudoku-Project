@@ -44,8 +44,6 @@ class SudokuGenerator:
             return True
         return False
 
-
-
     def solve(self, row, col):
         if row == 9:
             return True
@@ -97,7 +95,6 @@ class SudokuGenerator:
         self.fill_diagonal()
         self.fill_remaining(0, 3)
         self.solution = [row[:] for row in self.board]
-
 
     def remove_cells(self):  # call after fill values is called
         while self.removed_cells > 0:

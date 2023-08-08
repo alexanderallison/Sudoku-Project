@@ -27,8 +27,8 @@ class Cell:
         cell_size = self.screen.get_width() // 9
         box_size = cell_size * 3
         if self.selected:
-            pygame.draw.rect(self.screen, (169, 169, 169),
-                             (self.col * cell_size, self.row * cell_size, cell_size, cell_size))
+            pygame.draw.rect(self.screen, (220, 20, 60),
+                             (self.col * cell_size, self.row * cell_size, cell_size, cell_size), 3)
         else:
             pygame.draw.rect(self.screen, (255, 255, 255),
                              (self.col * cell_size, self.row * cell_size, cell_size, cell_size))

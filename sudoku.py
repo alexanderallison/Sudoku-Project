@@ -68,10 +68,7 @@ win_font = pygame.font.Font(None, 36)
 # Run the game loop
 running = True
 while running:
-    if board.selected_cell:
-        x, y = pygame.mouse.get_pos()
-        pygame.draw.rect(SCREEN, (220, 20, 60), (x, y,
-                                                 HEIGHT // 9, WIDTH // 9), 3)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False

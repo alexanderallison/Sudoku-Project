@@ -15,11 +15,11 @@ class Board:
         # instantiate 81 cells:
         self.cells = [[Cell(0, row, col, self.screen) for col in range(9)] for row in range(9)]
         # instantiate sudoku 2D list
-        sudoku = generate_sudoku(9, DIFFICULTY_LEVELS[difficulty])
+        self.sudoku = generate_sudoku(9, DIFFICULTY_LEVELS[difficulty])
         self.selected_cell = None
         for row in range(9):
             for col in range(9):
-                cell_value = sudoku.board[row][col]
+                cell_value = self.sudoku.board[row][col]
                 self.cells[row][col] = Cell(cell_value, row, col, self.screen)
 
     def draw(self):  # draw outline of sudoku grid with lines
@@ -92,9 +92,9 @@ class Board:
             for cell in row:
                 if cell.value == 0:
                     return False
-                if not self.sudoku.is_valid(cell.row, cell.col, cell.value):
-                    return False
-        return True
+                if self.sudoku.is_valid(cell.row, cell.col, cell.value):
+                    return True
+        return False
 
     def fill_board(self):
         for row in range(9):
