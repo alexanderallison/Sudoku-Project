@@ -68,6 +68,10 @@ win_font = pygame.font.Font(None, 36)
 # Run the game loop
 running = True
 while running:
+    if board.selected_cell:
+        x, y = pygame.mouse.get_pos()
+        pygame.draw.rect(SCREEN, (220, 20, 60), (x, y,
+                                                 HEIGHT // 9, WIDTH // 9), 3)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -98,7 +102,7 @@ while running:
     board.draw()
 
     if board.is_full() and board.check_board():
-        win_text = win_font.render("Wow, You win.", True, (0, 0, 0))
+        win_text = win_font.render("Wow, You win!", True, (220, 20, 60))
         win_rect = win_text.get_rect(center=(WIDTH // 2, HEIGHT - 30))
         SCREEN.blit(win_text, win_rect)
 
