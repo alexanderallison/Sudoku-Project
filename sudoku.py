@@ -1,7 +1,7 @@
 import pygame
-from cell import Cell
-from board import Board
-from sudoku_generator import SudokuGenerator
+from cell import *
+from board import *
+from sudoku_generator import *
 
 # Initialize pygame
 pygame.init()
@@ -56,8 +56,8 @@ for key, value in DIFFICULTY_LEVELS.items():
         break
 
 # Create an instance of the SudokuGenerator class to generate the board
-sudoku_generator = SudokuGenerator(9, DIFFICULTY_LEVELS[difficulty_key])
-sudoku_generator.generate_sudoku()
+sudoku_generator = SudokuGenerator.generate_sudoku(9, DIFFICULTY_LEVELS[difficulty_key])
+#sudoku_generator.generate_sudoku()
 
 # Create an instance of the Board class with the generated board
 board = Board(WIDTH, HEIGHT, SCREEN, difficulty_key)
