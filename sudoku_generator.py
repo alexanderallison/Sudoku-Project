@@ -7,7 +7,7 @@ class SudokuGenerator:
         self.row_length = row_length  # length of each row (9)
         self.removed_cells = removed_cells  # total num of cells to be removed
         # 2D list of 0s forming square of board
-        self.board = [[0 for i in range(row_length)] for j in range(row_length)]
+        self.board = [[0 for i in range(row_length)] for j in range(9)]
         self.box_length = int(math.sqrt(row_length))  # length of 1 sudoku box
         self.solution = None
 
@@ -105,10 +105,12 @@ class SudokuGenerator:
                 self.board[row][col] = 0
                 self.removed_cells -= 1
 
-    def generate_sudoku(size, removed):
-        sudoku = SudokuGenerator(size, removed)
-        sudoku.fill_values()
-        #board = sudoku.get_board()
-        sudoku.remove_cells()
-        board = sudoku.get_board()
-        return board
+
+def generate_sudoku(size, removed):
+    sudoku = SudokuGenerator(size, removed)
+    sudoku.fill_values()
+    board = sudoku.get_board()
+    sudoku.remove_cells()
+    for row in board:
+        print(row, end='\n')
+    return board

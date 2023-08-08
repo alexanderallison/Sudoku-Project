@@ -55,9 +55,9 @@ for key, value in DIFFICULTY_LEVELS.items():
         difficulty_key = key
         break
 
-# Create an instance of the SudokuGenerator class to generate the board
-sudoku_generator = SudokuGenerator.generate_sudoku(9, DIFFICULTY_LEVELS[difficulty_key])
-#sudoku_generator.generate_sudoku()
+# instantiate SudokuGenerator class to generate the board
+sudoku_generator = generate_sudoku(9, DIFFICULTY_LEVELS[difficulty_key])
+
 
 # Create an instance of the Board class with the generated board
 board = Board(WIDTH, HEIGHT, SCREEN, difficulty_key)

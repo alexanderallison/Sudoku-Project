@@ -15,8 +15,12 @@ class Board:
         # instantiate 81 cells:
         self.cells = [[Cell(0, row, col, self.screen) for col in range(9)] for row in range(9)]
         # instantiate sudoku 2D list
-        self.sudoku_generator = SudokuGenerator.generate_sudoku(9, DIFFICULTY_LEVELS[difficulty])
+        self.sudoku_generator = generate_sudoku(9, DIFFICULTY_LEVELS[difficulty])
         self.selected_cell = None
+        for row in range(9):
+            for col in range(9):
+                cell_value = self.sudoku_generator[row][col]
+                self.cells[row][col] = Cell(cell_value, row, col, self.screen)
 
     def draw(self):  # draw outline of sudoku grid with lines
         for row in self.cells:
