@@ -69,11 +69,15 @@ class Board:
 
     def is_full(self):
         # checks board and returns True if all cells are no 0
-        for row in self.cells:
-            for cell in row:
-                if cell.value == 0:
-                    return False
-        return True
+        count = 0
+        for row in range(9):
+            for col in range(9):
+                if self.cells[row][col] != 0:
+                    count += 1
+        if count >= 81:
+            return True
+        else:
+            return False
 
     def update_board(self):
         # updates the 2D board list with values of all cells
@@ -84,7 +88,6 @@ class Board:
     def find_empty(self):
         # finds an empty cell and returns its row and col as tuple (x,y)
         pass
-
 
     def check_board(self):
         # checks whether the board is solved correctly

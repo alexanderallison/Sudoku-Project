@@ -27,7 +27,7 @@ class SudokuGenerator:
 
     def valid_in_col(self, col, num):
         for x in range(9):  # iterate through entire column range
-            if self.board[x][int(col)] == num:  # check each board[x][col] for value of num
+            if self.board[x][col] == num:  # check each board[x][col] for value of num
                 return False  # if the col has num then it is not valid
         return True  # otherwise the number is valid in the column
 

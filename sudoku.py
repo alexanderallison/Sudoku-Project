@@ -45,6 +45,7 @@ def show_menu():
                             return cell_count
 
 
+
 # Show the difficulty selection menu and get the chosen difficulty
 chosen_difficulty = show_menu()
 
@@ -70,6 +71,7 @@ running = True
 while running:
 
     for event in pygame.event.get():
+
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -100,8 +102,9 @@ while running:
 
     if board.is_full() and board.check_board():
         win_text = win_font.render("Wow, You win!", True, (220, 20, 60))
-        win_rect = win_text.get_rect(center=(WIDTH // 2, HEIGHT - 30))
+        win_rect = win_text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
         SCREEN.blit(win_text, win_rect)
+
 
     pygame.display.update()
 
